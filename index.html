@@ -56,11 +56,17 @@ function getColor(d) {
 var customLayer = L.geoJson(null, {
     // http://leafletjs.com/reference.html#geojson-style
     style: function(feature) {
-        return { fillColor: getColor(feature.properties.n_count), color: 'black', weight: 0, fillOpacity: 0.7};
+        return {
+          fillColor: getColor(feature.properties.a_count),
+          color: 'black',
+          weight: 0,
+          fillOpacity: 0.7,
+          smoothFactor: 0
+        };
     }
 });
 
-omnivore.topojson('json/diversity.json', null, customLayer).addTo(map);
+omnivore.topojson('json/diversity2_att.json', null, customLayer).addTo(map);
 
 </script>
 </body>
